@@ -71,8 +71,7 @@ void Game::update(){
 void Game::render(){
   screen->clear(0);
   screen->clearzbuffer();
-  text->render("this is a text rendering (1337)",screen,32,h/2);
-  if(wpressed)text->render("wpressed",screen,32,h/3);
+  text->render("KakutouBrawl",screen,w/2,h/2,0xaa6622);
   for(int i = 0;i < w*h;i++)pixels[i] = screen->getRaster()[i];
   SDL_UpdateTexture(texture,nullptr,pixels,4*w);
   SDL_RenderCopy(renderer,texture,nullptr,nullptr);

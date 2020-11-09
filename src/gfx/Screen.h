@@ -17,6 +17,7 @@ public:
   void clearzbuffer();
   void setoffset(int x,int y);
   void render(Bitmap* bitmap,int x,int y,int xo,int yo);
+  void render(Bitmap* bitmap,int x,int y,int xo,int yo,int col);
   void render(Bitmap* bitmap,int x,int y,int xo,int yo,bool xflip,bool yflip);
   void render(Bitmap* bitmap,int x,int y,int xo,int yo,bool xflip,bool yflip,int zb);
   void putpixel(int x,int y,int c);

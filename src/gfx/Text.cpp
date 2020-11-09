@@ -7,7 +7,7 @@ Text::Text(Bitmap* bitmap){
 Text::~Text(){
   delete sprite;
 }
-void Text::render(std::string text,Screen* screen,int x,int y){
+void Text::render(std::string text,Screen* screen,int x,int y,int col){
   for(int i = 0;i < text.length();i++){
     text[i] = std::toupper(text[i]);
   }
@@ -19,6 +19,9 @@ void Text::render(std::string text,Screen* screen,int x,int y){
       yoffset=11;
       xoffset-=26;
     }
-      screen->render(sprite,x+i*8,y,xoffset*8,yoffset*8);
+      screen->render(sprite,x+i*8,y,xoffset*8,yoffset*8,col);
   }
+}
+void Text::render(std::string text,Screen* screen,int x,int y){
+  Text::render(text,screen,x,y,0xFFFFFFFF);
 }

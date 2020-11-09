@@ -11,6 +11,7 @@ class Text{
   public :
   Text(Bitmap* bitmap);
   ~Text();
+  void render(std::string text,Screen* screen,int x,int y,int col);
   void render(std::string text,Screen* screen,int x,int y);
 };
 #endif

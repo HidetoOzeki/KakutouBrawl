@@ -12,6 +12,25 @@ yoffset = y;
 void Screen::render(Bitmap* bitmap,int x,int y,int xo,int yo,bool xflip,bool yflip){
   render(bitmap,x,y,xo,yo,xflip,yflip,0);
 }
+void Screen::render(Bitmap* bitmap,int x,int y,int xo,int yo,int col){
+  //this function ignores zbuffer
+  x-=xoffset;
+  y-=yoffset;
+  for(int j = 0;j < 8;j++){
+    int py = y+j;
+    if(py < 0||py >= h)continue;
+    for(int i = 0;i < 8;i++){
+      int px = x+i;
+      if(px < 0||px >= w)continue;
+      int tx = xo+i;
+      int ty = yo+j;
+      int c = bitmap->getPixels()[tx+ty*bitmap->getWidth()];
+      if(c!=0xff000000){
+        pixels[px+py*w] = c&col;
+      }
+      }
+  }
+}
 void Screen::render(Bitmap* bitmap,int x,int y,int xo,int yo,bool xflip,bool yflip,int zb){
   x-=xoffset;
   y-=yoffset;
