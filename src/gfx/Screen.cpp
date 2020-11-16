@@ -4,6 +4,7 @@ Screen::Screen(int width,int height){
   h = height;
   pixels = new Uint32[w*h];
   zbuffer = new int[w*h];
+  default_sprite = new Bitmap("../res/spritesheet.bmp");
 }
 void Screen::setoffset(int x,int y){
 xoffset = x;
@@ -14,6 +15,9 @@ void Screen::render(Bitmap* bitmap,int x,int y,int xo,int yo,bool xflip,bool yfl
 }
 void Screen::render(Bitmap* bitmap,int x,int y,int xo,int yo,int col){
   //this function ignores zbuffer
+  if(bitmap==nullptr){
+    bitmap = default_sprite;
+  }
   x-=xoffset;
   y-=yoffset;
   for(int j = 0;j < 8;j++){
@@ -32,6 +36,9 @@ void Screen::render(Bitmap* bitmap,int x,int y,int xo,int yo,int col){
   }
 }
 void Screen::render(Bitmap* bitmap,int x,int y,int xo,int yo,bool xflip,bool yflip,int zb){
+  if(bitmap==nullptr){
+    bitmap = default_sprite;
+  }
   x-=xoffset;
   y-=yoffset;
   for(int j = 0;j < 8;j++){

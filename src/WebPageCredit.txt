@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/36120226/sdl-net-udp-packet-data
+http://sdl2referencejp.osdn.jp/
+https://moddb.fandom.com/wiki/SDL:Tutorial:Using_SDL_net

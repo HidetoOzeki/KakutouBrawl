@@ -13,12 +13,12 @@ void Game::init(const int width,const int height,int scale){
   h = height;
   Game::scale = scale;
   SDL_Init(SDL_INIT_EVERYTHING);
-  window = SDL_CreateWindow("game",
+  window = SDL_CreateWindow("KakutouBrawl",
                             SDL_WINDOWPOS_UNDEFINED,
                             SDL_WINDOWPOS_UNDEFINED,
                             w*scale,
                             h*scale,
-                            SDL_WINDOW_SHOWN|SDL_WINDOW_OPENGL);
+                            SDL_WINDOW_SHOWN);
   renderer = SDL_CreateRenderer(window,-1,
                                 SDL_RENDERER_ACCELERATED);
   texture = SDL_CreateTexture(
@@ -71,7 +71,10 @@ void Game::update(){
 void Game::render(){
   screen->clear(0);
   screen->clearzbuffer();
-  text->render("KakutouBrawl",screen,w/2,h/2,0xaa6622);
+  for(int i = 0;i < 10;i++){
+    int c = i*25;
+  text->render("KakutouBrawl",screen,i*5+w/10,i*5+h/10,((250-c)<<16|0<<8|0)|(0<<16|0<<8|c));
+  }
   for(int i = 0;i < w*h;i++)pixels[i] = screen->getRaster()[i];
   SDL_UpdateTexture(texture,nullptr,pixels,4*w);
   SDL_RenderCopy(renderer,texture,nullptr,nullptr);

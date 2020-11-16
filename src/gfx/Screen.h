@@ -10,6 +10,7 @@ private:
   int xoffset,yoffset;
   Uint32* pixels;
   int* zbuffer;
+  Bitmap* default_sprite;
 public:
   Screen(int width,int height);
   void clear(int color);
@@ -27,8 +28,9 @@ public:
   int getHeight(){return h;};
   void clean(){
   std::cout << "Screen Destructor Called!" << std::endl;
-  delete zbuffer;
-  delete pixels;
+  delete[] zbuffer;
+  delete[] pixels;
+  delete default_sprite;
   }
 };
 #endif
