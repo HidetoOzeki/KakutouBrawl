@@ -1,3 +1,7 @@
 https://stackoverflow.com/questions/36120226/sdl-net-udp-packet-data
 http://sdl2referencejp.osdn.jp/
 https://moddb.fandom.com/wiki/SDL:Tutorial:Using_SDL_net
+https://www.geeksforgeeks.org/udp-server-client-implementation-c/
+
+/* Official SDL Networking Documentation*/ https://www.libsdl.org/projects/SDL_net/docs/SDL_net.pdf
+/* might be a good example */ https://stackoverflow.com/questions/42864996/sdl-net-udp-server-setup

@@ -1,4 +1,5 @@
 #ifndef TILE_H
+#define TILE_H
 #include "../gfx/Screen.h"
 class Tile{
   int xtex = 0;

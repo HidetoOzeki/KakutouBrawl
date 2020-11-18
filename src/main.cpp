@@ -1,6 +1,14 @@
 #include "Game.h"
+#include "network/Server.h"
 Game* game;
 int main(int arg,char* args[]){
+
+  Server *server = new Server();
+  server->start();
+  Uint32 addr = SDLNet_Read32("192.168.3.11");
+  std::cout << addr << std::endl;
+  server->send("data",addr,6666);
+
   game = new Game();
   game->init(320,240,2);
   int fps = 0;
@@ -30,5 +38,10 @@ int main(int arg,char* args[]){
     }
   }
   game->close();
+
+  server->close();
+  delete server;
+
+
   return 0;
 }
